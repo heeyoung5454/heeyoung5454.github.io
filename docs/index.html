@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><title>hy</title><script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script><script>(function() {
+          emailjs.init('user_VSR1oc964fcAllHtuJZLJ');
+      })();</script><script>window.onload = function() {
+          document.getElementById('contact-form').addEventListener('submit', function(event) {
+              event.preventDefault();
+              // generate a five digit number for the contact_number variable
+              this.contact_number.value = Math.random() * 100000 | 0;
+              // these IDs from the previous steps
+              emailjs.sendForm('contact_service', 'contact_form', this)
+                  .then(function() {
+                      alert("이메일을 전송하였습니다");
+                      console.log('SUCCESS!');
+                  }, function(error) {
+                      alert("이메일을 전송하지 못하였습니다. 다시 시도해주세요.");
+                      console.log('FAILED...', error);
+                  });
+          });
+      }</script><link href="/css/app.89a5a678.css" rel="preload" as="style"><link href="/css/chunk-vendors.2d065fb2.css" rel="preload" as="style"><link href="/js/app.75196e7d.js" rel="preload" as="script"><link href="/js/chunk-vendors.e9a58118.js" rel="preload" as="script"><link href="/css/chunk-vendors.2d065fb2.css" rel="stylesheet"><link href="/css/app.89a5a678.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but hy doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script src="/js/chunk-vendors.e9a58118.js"></script><script src="/js/app.75196e7d.js"></script></body></html>
