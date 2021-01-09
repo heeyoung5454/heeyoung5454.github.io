@@ -14,12 +14,25 @@ import FAQ from "./views/board/Faq";
 
 import Test from "./views/Test";
 
+
+/*
+import Read from "@/components/boardbackup/Read";
+import Create from "@/components/boardbackup/Create";
+import Detail from "@/components/boardbackup/Detail";
+*/
+
+
 Vue.use(VueRouter);
 
 const router= new VueRouter ({
     mode : "history",
-    routes : [{ 
+    routes : [
+        { 
             path:"/", 
+            component: Home
+        },  
+        { 
+            path:"/home", 
             component: Home
         },  
 
@@ -78,7 +91,7 @@ const router= new VueRouter ({
         { 
             path:"/test", 
             component: Test
-        }  
+        },  
     ]
 });
 
