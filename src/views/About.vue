@@ -1,4 +1,5 @@
 <template>
+<div>
 <div class="container-md">
     <div class="mt-4 mb-5">
         <h1 class="mb-4 text-center">ABOUT</h1>
@@ -115,7 +116,7 @@
 
         </b-card-group>
     </div>
-
+</div>
 </div>
 </template>
 
