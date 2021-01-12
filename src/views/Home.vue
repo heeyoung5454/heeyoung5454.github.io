@@ -1,38 +1,46 @@
 <template>
-<div>
-    <!-- <h1>welcome to {{title}}!</h1>         -->
-    <div id="slide">
-        <Slide />
-    </div>
-    <div class="container-md">
-        <Card />
+<div >     
+    <Slide/>    
+    <div id="About" class="container-md">
+        <About />
     </div>
     <Jumbotron />
-    <div class="container-md">
-        <Calendar />
+
+    <hr>
+    <div id="Portfolio" class="container-md">
+        <Portfolio />
     </div>
+
+    <FixImg/>
+    
+    <div id="Faq" class="container-md">
+        <Faq />
+    </div>
+
 </div>
 </template>
 
 <script>
-import Card from "./main/card.vue";
-import Calendar from "./main/calendar.vue";
+import About from "./About.vue";
+import Portfolio from "./Portfolio.vue";
+import Faq from "./board/Faq.vue";
+
 import Slide from "./main/slide.vue";
 import Jumbotron from "./main/jumbotron.vue";
+import FixImg from "./main/FixImg.vue";
+
 
 export default {
     name: "Home",
     components: {
-        Card,
-        Calendar,
         Slide,
-        Jumbotron
-    },
-    data() {
-        return {
-            title: 'heeyoung'
-        }
-    },
+        Jumbotron,
+        About,
+        Portfolio,
+        Faq,
+        FixImg
+    }
+    
 };
 </script>
 

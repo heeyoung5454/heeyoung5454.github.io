@@ -47,7 +47,7 @@ export default {
 <style>
 #footer {    
     position: absolute;
-    bottom:-261px;
+    bottom:-330px;
     right:0;
     width: 100%;
     margin-top: 20px;

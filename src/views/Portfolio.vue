@@ -1,13 +1,13 @@
 <template>
-<div class="container-md ">
-    <div class="mt-5 mr-5 ml-5">
-        <h1 class="mb-4 text-center ">PORTFOLIO</h1>
+<div>
+    <div class="mt-5 container-md">
+        <h1 class="mb-5 text-center ">PORTFOLIO</h1>
 
         <b-tabs content-class="mt-3" fill>
             <b-tab title="개발" active>
 
                 <b-card-group deck class="m-4">
-                    <b-card title="IPRV" img-src="https://picsum.photos/300/300/?image=6" img-alt="Image" img-top tag="article" class="m-3">
+                    <b-card title="IPRV" :img-src=portfolio1 img-alt="Image" img-top tag="article" class="m-3">
                         <b-card-text>                            
                             2020.02 ~ 2021.01<br>                            
                             지식재산권 침해 예측 시스템 개발                            
@@ -82,15 +82,17 @@
 </template>
 
 <script>
-import myImg1_2 from "../assets/portfolio/SDU_1.png";
-import myImg1_3 from "../assets/portfolio/gangdong.png";
-import myImg1_4 from "../assets/portfolio/hogye.jpg";
+import myImg1_1 from "../assets/portfolio/IPRV_1.png";
+import myImg1_2 from "../assets/portfolio/SDU_4.png";
+import myImg1_3 from "../assets/portfolio/gangdong2.png";
+import myImg1_4 from "../assets/portfolio/hogye.png";
 import myImg2_1 from "../assets/portfolio/z9star.png";
 import myImg2_2 from "../assets/portfolio/korea_sale.png";
 
 export default {
     data() {
         return {            
+            portfolio1: myImg1_1,
             portfolio2: myImg1_2,
             portfolio3: myImg1_3,
             portfolio4: myImg1_4,
