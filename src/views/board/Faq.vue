@@ -73,6 +73,6 @@ export default {
 }
 
 .color-faq{
-    background-color: yellow;
+    background-color: gray;
 }
 </style>
