@@ -47,7 +47,7 @@
         <div v-for="bar in bars" class="row m-3" v-bind:key="bar">
             <div class="col-sm-2">{{ bar.bTitle }}</div>
             <div class="col-sm-10 pt-1">
-                <b-progress :value="bar.value" variant="primary" animated></b-progress>
+                <b-progress :value="bar.value" variant="primary"></b-progress>
             </div>
         </div>
     </div>

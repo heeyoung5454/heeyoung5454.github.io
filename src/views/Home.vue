@@ -1,51 +1,56 @@
 <template>
 <div >     
-    <Slide/>    
+    <!-- <Slide/>     -->
     <div id="About" class="container-md">
         <About />
-    </div>
-    <Jumbotron />
-
+    </div>    
     <hr>
+    <FixImg/>
+
     <div id="Portfolio" class="container-md">
         <Portfolio />
     </div>
 
-    <FixImg/>
+    <hr>
+    <Project/>
+    <hr>
     
     <div id="Faq" class="container-md">
         <Faq />
     </div>
-
+    
+    <div class="text-center">
+        <b-button variant="outline-dark" @click="contact">제작자 연락하기</b-button>
+    </div>
 </div>
 </template>
 
 <script>
 import About from "./About.vue";
-import Portfolio from "./Portfolio.vue";
-import Faq from "./board/Faq.vue";
-
-import Slide from "./main/slide.vue";
-import Jumbotron from "./main/jumbotron.vue";
 import FixImg from "./main/FixImg.vue";
+import Portfolio from "./Portfolio.vue";
+import Project from "./Project.vue";
+import Faq from "./board/Faq.vue";
 
 
 export default {
     name: "Home",
-    components: {
-        Slide,
-        Jumbotron,
+    components: {    
         About,
+        FixImg,
         Portfolio,
-        Faq,
-        FixImg
-    }
+        Project,
+        Faq
+    },
+     methods: {
+        contact() {
+            this.$router.push({
+                path: '/contact'
+            })
+        }
+     }
+
+
     
 };
 </script>
-
-<style>
-#slide {
-    margin: 30px 0;
-}
-</style>

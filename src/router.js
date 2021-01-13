@@ -5,6 +5,7 @@ import Home from "./views/Home";
 import About from "./views/About";
 import Contact from "./views/Contact";
 import Portfolio from "./views/Portfolio";
+import Project from "./views/Project";
 
 
 import Board from "./views/board/Board";
@@ -46,6 +47,11 @@ const router= new VueRouter ({
         {
             path:"/contact", 
             component: Contact
+        },
+        {
+
+            path:"/project",
+            component:Project
         },
 
         {
