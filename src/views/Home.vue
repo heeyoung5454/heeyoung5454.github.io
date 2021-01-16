@@ -1,24 +1,21 @@
 <template>
-<div >     
-    <!-- <Slide/>     -->
+<div>    
     <div id="About" class="container-md">
         <About />
-    </div>    
+    </div>
     <hr>
-    <FixImg/>
+    <FixImg />
 
     <div id="Portfolio" class="container-md">
         <Portfolio />
     </div>
 
-    <hr>
     <Project/>
-    <hr>
-    
+
     <div id="Faq" class="container-md">
         <Faq />
     </div>
-    
+
     <div class="text-center">
         <b-button variant="outline-dark" @click="contact">제작자 연락하기</b-button>
     </div>
@@ -32,25 +29,22 @@ import Portfolio from "./Portfolio.vue";
 import Project from "./Project.vue";
 import Faq from "./board/Faq.vue";
 
-
 export default {
     name: "Home",
-    components: {    
+    components: {
         About,
         FixImg,
         Portfolio,
         Project,
         Faq
     },
-     methods: {
+    methods: {
         contact() {
             this.$router.push({
                 path: '/contact'
             })
         }
-     }
+    }
 
-
-    
 };
 </script>

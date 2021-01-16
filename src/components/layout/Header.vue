@@ -9,7 +9,7 @@
             <b-navbar-nav>
                 <b-nav-item to="/about">About</b-nav-item>
                 <b-nav-item to="/portfolio">Portfolio</b-nav-item>
-                <b-nav-item to="/project">Project</b-nav-item>
+                <b-nav-item to="/project">Publish</b-nav-item>
                 <b-nav-item to="/faq">FAQ</b-nav-item>
                 <b-nav-item to="/contact">Contact</b-nav-item>                
                 <!--

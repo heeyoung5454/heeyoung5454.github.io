@@ -13,9 +13,10 @@ Vue.use(IconsPlugin)
 
 Vue.use(VueMoment)
 
+// -------------부트스트랩 css 추가
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-// -------------부트스트랩 css 추가 끝
+
 
 Vue.config.productionTip = false
 

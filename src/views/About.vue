@@ -71,37 +71,17 @@
                         <span class="ml-2">- java, jsp, oracle, mysql</span>
                     </div>
                 </b-card-text>
-
-                <b-button v-b-modal.webplanner variant="outline-primary" class="mt-2 float-right">더보기</b-button>
-
-                <b-modal id="webplanner" centered title="(주)웹플래너" ok-only>
-                    <p>
-                        2020.02 ~ 현재
-                        <br> 홈페이지 유지보수 2건, 자체 홈페이지 1건 개발 업무를 하고 있습니다. 전자정부프레임워크를 사용하며 언어는 java입니다.
-                        주로 프론트앤드 업무를 담당하며 백엔드도 함께 하고 있습니다. <br>또한 카페24를 통해 쇼핑몰을 제작하였습니다.
-                    </p>
-                </b-modal>
             </b-card>
 
             <b-card header="코스모스엔터테인먼트" header-tag="header" title="COSMOSENTER">
-                <b-card-text class="m-2">
+                <b-card-text class="m-2">                    
                     <div class="mb-2">게임 내 서비스 기획<br>
-                        <span class="ml-2">- 전자정부프레임워크, 이클립스, 비주얼스튜디오코드, 카페24</span>
+                        <span class="ml-2">- 인게임 이벤트, 시나리오, 퀘스트 제작 </span>
                     </div>
                     <div class="mb-2">홈페이지 이벤트 기획 <br>
-                        <span class="ml-2">- html, css, javascript, jquery</span>
+                        <span class="ml-2">- 웹 이벤트 기획, UI/UX 디자인</span>
                     </div>                    
                 </b-card-text>
-
-                <b-button v-b-modal.cosmos variant="outline-primary" class="mt-2 float-right">더보기</b-button>
-
-                <b-modal id="cosmos" centered title="코스모스엔터테인먼트" ok-only>
-                    <p>
-                        2018.02 ~ 2019.01 <br>게임 시스템 및 서비스 기획업무를 하였습니다.
-                        유저들의 성향을 분석하여 게임 컨텐츠를 추가하였으며, 신규유저 유입을 위한 이벤트를 진행하였습니다.
-                        또한 게임 내 시스템 개선을 위한 UI/UX 디자인과 웹 미니게임 기획을 하였습니다.
-                    </p>
-                </b-modal>
 
             </b-card>
 
