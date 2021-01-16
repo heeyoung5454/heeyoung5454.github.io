@@ -144,4 +144,29 @@ export default {
 .demo:hover {
     opacity: 1;
 }
+
+@media screen and (max-width: 991px){
+    .caption-container {
+        bottom: 25%;
+    }
+
+}
+
+@media screen and (max-width: 700px){
+    .caption-container {
+        bottom: 23%;
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (max-width: 480px){
+    .caption-container {
+        bottom: 20%;
+        font-size: 15px;
+    }
+
+}
+
+
 </style>

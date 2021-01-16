@@ -64,11 +64,22 @@ export default {
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.4);
     color: white;
-    width: 100%;
-    padding: 20px;
+    width: 100%;    
 }
 
 .jumbotron{
     background-color: transparent !important; 
+}
+
+@media screen and (max-width: 420px){
+    .display-3{
+        font-size: 50px !important;
+    }
+    .lead{
+        font-size: 18px;
+    }
+
+
+
 }
 </style>

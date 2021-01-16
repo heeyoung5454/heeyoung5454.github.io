@@ -3,7 +3,7 @@
     <div id="About" class="container-md">
         <About />
     </div>
-    <hr>
+        
     <FixImg />
 
     <div id="Portfolio" class="container-md">

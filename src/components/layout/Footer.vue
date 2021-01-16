@@ -60,5 +60,11 @@ export default {
     margin: 20px auto;
 }
 
+@media screen and (max-width: 991px){
+    #footer{
+        bottom:-500px;
+    }
+}
+
 
 </style>

@@ -153,3 +153,12 @@ export default {
 
 }
 </script>
+
+<style>
+@media screen and (max-width: 700px){
+    .m-4 {
+        margin:0 !important;
+    }
+
+}
+</style>
