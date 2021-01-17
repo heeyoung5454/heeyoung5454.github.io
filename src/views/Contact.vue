@@ -1,5 +1,5 @@
 <template>
-<div class="container-md mt-5" style="min-height:638px">
+<div id="contact" class="container-md mt-5" style="min-height:638px">
 
     <b-container class="w-50 d-inline-block p-3">
 
@@ -32,26 +32,20 @@
 
     <b-container id="contact_img" class="w-50 d-inline-block text-center bg-dark text-light d-inline-block pt-4 pb-4">
 
-        <b-row class="mt-2 mb-4">
+        <b-row class="mt-3 mb-5">
             <b-col class="h1">
                 <b-icon icon="person-circle" variant="light"></b-icon>
                 <p>JEONG, HEE YOUNG</p>
             </b-col>
         </b-row>
-        <b-row class="mt-2 mb-4">
+        <b-row class="mt-3 mb-5">
             <b-col class="h1">
                 <b-icon icon="envelope" variant="light"></b-icon>
                 <p>heeyoung5454@gmail.com</p>
             </b-col>
         </b-row>
-        <b-row class="mt-2 mb-4">
-            <b-col class="h1">
-                <b-icon icon="phone" variant="light"></b-icon>
-                <p>010-2028-5430</p>
-            </b-col>
-        </b-row>
 
-        <b-row class="mt-2 mb-4">
+        <b-row class="mt-3 mb-5">
             <b-col class="h1">
                 <b-icon icon="chat-fill" variant="light"></b-icon>
                 <p>
@@ -63,7 +57,7 @@
         </b-row>
 
         <div class="text-right">
-          -
+          이메일로 연락부탁드립니다
         </div>
 
     </b-container>
@@ -107,5 +101,16 @@ export default {
 #contact_img .h1 svg {
     width: 48px;
     height: 48px;
+}
+
+@media screen and (max-width: 767px){
+    #contact .w-50{
+        width: 100% !important;
+    }
+
+    #contact .d-inline-block{
+        display: block !important;
+    }
+
 }
 </style>

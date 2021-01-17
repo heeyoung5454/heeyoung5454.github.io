@@ -1,20 +1,26 @@
 <template>
 <div id="project">
-    <h1 class="mb-5 text-center ">PUBLISHING</h1>
+    <h1 class="mb-5 text-center">PUBLISHING</h1>
+    <p class="text-right">개인 제작물입니다 (클릭시 이동)</p>
     <div class="mySlides slide1">
         <a href="http://heeyoung54.dothome.co.kr/Project1" target="_blank" title="바로가기">
         <img :src=project1 style="width:70%"></a>
+        <p id="caption">Project1</p>
+        <p class="mt-3">Boostcamp 웹사이트 리디자인 및 수정˙보완</p>
     </div>
 
     <div class="mySlides slide2">
         <a href="http://heeyoung54.dothome.co.kr/Project2" target="_blank" title="바로가기">
         <img :src=project2 style="width:70%"></a>
-
+        <p id="caption">Project2</p>
+        <p>AiHackathon2018 웹사이트 리디자인 및 수정˙보완</p>
     </div>
 
     <div class="mySlides slide3">
         <a href="http://heeyoung54.dothome.co.kr/Project3" target="_blank" title="바로가기">
         <img :src=project3 style="width:70%"></a>
+        <p id="caption">Project3</p>
+        <p>한국방송통신대학교 스터디 홍보 사이트 '상한가' 기획 및 제작</p>
     </div>
 
     <!--화살표버튼 -->
@@ -22,15 +28,10 @@
         &#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
-    <!-- 제목 -->
-    <div class="caption-container">
-        <p id="caption">BOOSTCAMP</p>
-    </div>
-
     <!--슬라이드 리스트-->
     <div class="row">
         <div class="column slide1">
-            <img :src=project1 class="demo cursor" style="width:100%" onclick="currentSlide(1)" alt="BOOSTCAMP">
+            <img :src=project1 class="demo cursor" style="width:100%" onclick="currentSlide(1)" alt="BOOSTCAMP">            
         </div>
         <div class="column slide2">
             <img :src=project2 class="demo cursor" style="width:100%" onclick="currentSlide(2)" alt="AIHACKATHON">
@@ -115,15 +116,6 @@ export default {
     text-decoration: none;
 }
 
-/* 슬라이드제목 */
-.caption-container {
-    text-align: center;
-    position: absolute;
-    width: 100%;
-    bottom: 28%;    
-    color: #222;
-    font-size: 30px;
-}
 
 .row:after {
     content: "";
@@ -146,26 +138,15 @@ export default {
 }
 
 @media screen and (max-width: 991px){
-    .caption-container {
-        bottom: 25%;
+    .mySlides {
+        padding:20px 0;
     }
-
 }
 
-@media screen and (max-width: 700px){
-    .caption-container {
-        bottom: 23%;
-        font-size: 20px;
+@media screen and (max-width: 500px){
+    #project p{
+        font-size: 13px;
     }
-
-}
-
-@media screen and (max-width: 480px){
-    .caption-container {
-        bottom: 20%;
-        font-size: 15px;
-    }
-
 }
 
 

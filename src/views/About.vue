@@ -6,16 +6,16 @@
         <b-card-group columns>
             <b-card title="PROFILE" :img-src=profile1 img-alt="Image" img-top>
                 <b-card-text>
-                    정희영<br>
-                    1994.09.08<br>                    
-                    서울여자대학교 컴퓨터학 졸업                    
+                    * 정희영<br>
+                    * 1994.09.08<br>                    
+                    * 서울여자대학교 컴퓨터학 졸업                    
                 </b-card-text>
             </b-card>
 
             <b-card title="CAREER" img-src="https://picsum.photos/600/300/?image=25" img-alt="Image" img-top style="maxaa-width: 20rem;" class="mb-2 text-left">
                 <b-card-text>
-                    (주) 웹플래너<br>
-                    코스모스엔터테인먼트
+                    * (주) 웹플래너<br>
+                    * 코스모스엔터테인먼트
                 </b-card-text>                
             </b-card>
 
@@ -58,7 +58,7 @@
         <b-card-group deck>
             <b-card header="(주)웹플래너" header-tag="header" title="WEBPLANNER">
 
-                <b-card-text class="m-2">
+                <b-card-text class="m-2">                    
                     <div class="mb-2">웹 개발<br>
                         <span class="ml-2">- 전자정부프레임워크, 이클립스, 비주얼스튜디오코드, 카페24</span>
                     </div>
@@ -73,8 +73,8 @@
                 </b-card-text>
             </b-card>
 
-            <b-card header="코스모스엔터테인먼트" header-tag="header" title="COSMOSENTER">
-                <b-card-text class="m-2">                    
+            <b-card header="코스모스엔터테인먼트" header-tag="header" title="COSMOSENTER">                
+                <b-card-text class="m-2">                                        
                     <div class="mb-2">게임 내 서비스 기획<br>
                         <span class="ml-2">- 인게임 이벤트, 시나리오, 퀘스트 제작 </span>
                     </div>

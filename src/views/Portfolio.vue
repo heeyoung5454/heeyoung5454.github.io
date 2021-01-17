@@ -2,6 +2,7 @@
 <div>
     <div class="mt-5 container-md">
         <h1 class="mb-5 text-center ">PORTFOLIO</h1>
+        <p class="text-right">프로젝트 제작물입니다</p>
 
         <b-tabs content-class="mt-3" fill>
             <b-tab title="개발" active>
@@ -18,12 +19,12 @@
 
                         <b-modal id="IPRV" centered title="지식재산권 침해 예측 시스템 " ok-only>
                             <p>
-                                - IDE : eclipse (전자정부프레임워크)<br>
-                                - 사용언어 : java<br>
-                                - DB : mysql<br>
+                                - IDE : eclipse (전자정부프레임워크 3.9)<br>
+                                - 사용언어 : Java<br>
+                                - DB : Mysql<br>
                                 - 버전관리 : SVN<br>
                                 - PMS : Readmine<br>
-                                - UI : bootstrap
+                                - UI : Bootstrap                                
                             </p>
                         </b-modal>
 
@@ -40,9 +41,9 @@
 
                         <b-modal id="sdu" centered title="서울디지털대학교 " ok-only>
                             <p>
-                                - IDE : eclipse (전자정부프레임워크)<br>
-                                - 사용언어 : java<br>
-                                - DB : mssql<br>
+                                - IDE : eclipse (전자정부프레임워크 3.6)<br>
+                                - 사용언어 : Java<br>
+                                - DB : Mssql<br>
                                 - 버전관리 : SVN<br>
                                 - PMS : Readmine
                             </p>
@@ -64,12 +65,12 @@
 
                         <b-modal id="nodong" centered title="강동구 노동권익센터" ok-only>
                             <p>
-                                - IDE : eclipse (전자정부프레임워크)<br>
-                                - 사용언어 : java<br>
-                                - DB : oracle<br>
+                                - IDE : eclipse (전자정부프레임워크 3.6)<br>
+                                - 사용언어 : Java<br>
+                                - DB : Oracle<br>
                                 - 버전관리 : SVN<br>
                                 - PMS : Readmine<br>
-                                - UI : bootstrap
+                                - UI : Bootstrap
                             </p>
                         </b-modal>
 
@@ -77,8 +78,8 @@
 
                     <b-card title="카페24" :img-src=portfolio4 img-alt="Image" img-top tag="article" class="m-3">
                         <b-card-text>
-                            2020.09 ~ 2020.12<br>
-                            카페24 커스터마이징을 통한 전통시장 쇼핑몰 제작
+                            2020.10 ~ 2020.11<br>
+                            카페24를 통한 전통시장 쇼핑몰 제작(customizing)
                         </b-card-text>
                         <b-link variant="info" href="http://hogye.kr" target="_blank"> 호계시장 </b-link>
 
