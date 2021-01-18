@@ -33,7 +33,7 @@
                     <b-card title="SDU" :img-src=portfolio2 img-alt="Image" img-top tag="article" class="m-3">
                         <b-card-text>
                             2020.03 ~ 2021.01<br>
-                            서울디지털대학교 홈페이지 유지보수(SI)
+                            서울디지털대학교 홈페이지 유지보수(SM)
                         </b-card-text>
                         <b-link variant="info" href="http://www.sdu.ac.kr" target="_blank"> 바로가기 </b-link>
 
@@ -57,7 +57,7 @@
                     <b-card title="강동구 노동권익센터" :img-src=portfolio3 img-alt="Image" img-top tag="article" class="m-3">
                         <b-card-text>
                             2020.04 ~ 2021.01<br>
-                            강동구 노동권익센터 홈페이지 유지보수(SI)
+                            강동구 노동권익센터 홈페이지 유지보수(SM)
                         </b-card-text>
                         <b-link variant="info" href="http://www.gangdong.go.kr/nodong" target="_blank"> 바로가기 </b-link>
 
