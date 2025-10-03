@@ -4,8 +4,214 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: $font-main;
-  color: $text-color;
+  color: $text-primary;
   background: $white;
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+// 스크롤바 스타일링
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $light-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $primary-color;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $secondary-color;
+}
+
+// 선택 텍스트 스타일
+::selection {
+  background: rgba($primary-color, 0.2);
+  color: $text-primary;
+}
+
+// 링크 기본 스타일
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+// 제목 스타일
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+  @include text-gradient;
+}
+
+h2 {
+  font-size: 2.5rem;
+  color: $text-primary;
+}
+
+h3 {
+  font-size: 2rem;
+  color: $text-primary;
+}
+
+// 버튼 기본 스타일
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+// 입력 필드 스타일
+input,
+textarea {
+  font-family: inherit;
+  border: 2px solid #e2e8f0;
+  border-radius: $border-radius;
+  padding: 0.75rem;
+  transition: border-color $transition-fast;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+  }
+}
+
+// 공통 버튼 스타일
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: $border-radius;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all $transition-fast;
+  border: none;
+  font-size: 1rem;
+  line-height: 1;
+
+  &.btn-primary {
+    background: $gradient-primary;
+    color: $white;
+    box-shadow: $shadow-md;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $shadow-lg;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+
+  &.btn-secondary {
+    background: transparent;
+    color: $primary-color;
+    border: 2px solid $primary-color;
+
+    &:hover {
+      background: $primary-color;
+      color: $white;
+    }
+  }
+
+  &.btn-outline {
+    background: transparent;
+    color: $text-primary;
+    border: 2px solid $text-primary;
+
+    &:hover {
+      background: $text-primary;
+      color: $white;
+    }
+  }
+
+  &.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
+}
+
+// 섹션 타이틀
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: $text-primary;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: $gradient-primary;
+    border-radius: 2px;
+  }
+}
+
+// 컨테이너
+.container {
+  @include container;
+}
+
+// 반응형 디자인
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .btn {
+    &.btn-large {
+      padding: 0.875rem 1.5rem;
+      font-size: 1rem;
+    }
+  }
 }

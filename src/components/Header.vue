@@ -1,52 +1,236 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{ 'header-scrolled': isScrolled, 'header-hidden': isHeaderHidden }">
     <nav class="nav">
-      <h1 class="logo">My Portfolio</h1>
+      <div class="logo">
+        <span class="logo-text">HeeYoung</span>
+        <span class="logo-subtitle">Frontend Developer</span>
+      </div>
+
       <ul class="nav-links">
-        <li><RouterLink to="/">Home</RouterLink></li>
-        <li><RouterLink to="/about">About</RouterLink></li>
-        <li><RouterLink to="/projects">Projects</RouterLink></li>
-        <li><RouterLink to="/contact">Contact</RouterLink></li>
+        <li><RouterLink to="/" class="nav-link">Home</RouterLink></li>
+        <li><RouterLink to="/about" class="nav-link">About</RouterLink></li>
+        <li><RouterLink to="/projects" class="nav-link">Projects</RouterLink></li>
+        <li><RouterLink to="/contact" class="nav-link">Contact</RouterLink></li>
       </ul>
+
+      <div class="mobile-menu-toggle" @click="toggleMobileMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </nav>
+
+    <!-- 모바일 메뉴 -->
+    <div class="mobile-menu" :class="{ 'mobile-menu-open': mobileMenuOpen }">
+      <ul class="mobile-nav-links">
+        <li><RouterLink to="/" @click="closeMobileMenu">Home</RouterLink></li>
+        <li><RouterLink to="/about" @click="closeMobileMenu">About</RouterLink></li>
+        <li><RouterLink to="/projects" @click="closeMobileMenu">Projects</RouterLink></li>
+        <li><RouterLink to="/contact" @click="closeMobileMenu">Contact</RouterLink></li>
+      </ul>
+    </div>
   </header>
 </template>
 
 <script setup>
 import { RouterLink } from "vue-router";
+import { ref, onMounted, onUnmounted } from "vue";
+
+const isScrolled = ref(false);
+const isHeaderHidden = ref(false);
+const mobileMenuOpen = ref(false);
+const lastScrollY = ref(0);
+
+const handleScroll = () => {
+  const currentScrollY = window.scrollY;
+  
+  // 스크롤 위치에 따른 헤더 스타일 변경
+  isScrolled.value = currentScrollY > 50;
+  
+  // 스크롤 방향에 따른 헤더 숨김/보임 처리
+  if (currentScrollY > lastScrollY.value && currentScrollY > 100) {
+    // 아래로 스크롤할 때 (100px 이상에서)
+    isHeaderHidden.value = true;
+  } else {
+    // 위로 스크롤할 때
+    isHeaderHidden.value = false;
+  }
+  
+  lastScrollY.value = currentScrollY;
+};
+
+const toggleMobileMenu = () => {
+  mobileMenuOpen.value = !mobileMenuOpen.value;
+};
+
+const closeMobileMenu = () => {
+  mobileMenuOpen.value = false;
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
 
 <style lang="scss" scoped>
 @import "@/assets/styles/variables";
+@import "@/assets/styles/mixins";
 
 .header {
-  background: $dark-bg;
-  color: $white;
-  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: transform $transition-medium, background-color $transition-medium, box-shadow $transition-medium;
+  transform: translateY(0);
+  
+  &.header-scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: $shadow-lg;
+  }
+  
+  &.header-hidden {
+    transform: translateY(-100%);
+  }
 
   .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include container;
+    @include flex-between;
+    padding: 1rem $padding-main;
+    min-height: 80px;
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
+      @include flex-column;
+      align-items: flex-start;
+
+      .logo-text {
+        font-size: 1.5rem;
+        font-weight: 700;
+        @include text-gradient;
+        line-height: 1;
+      }
+
+      .logo-subtitle {
+        font-size: 0.875rem;
+        color: $text-secondary;
+        font-weight: 500;
+      }
     }
 
     .nav-links {
       display: flex;
       list-style: none;
-      gap: 1.5rem;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
 
-      a {
-        text-decoration: none;
-        color: $white;
-        transition: color 0.2s;
+      .nav-link {
+        position: relative;
+        color: $text-primary;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        transition: color $transition-fast;
 
         &:hover {
           color: $primary-color;
         }
+
+        &.router-link-active {
+          color: $primary-color;
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: $gradient-primary;
+            border-radius: 1px;
+          }
+        }
+      }
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 0.5rem;
+
+      span {
+        width: 25px;
+        height: 3px;
+        background: $text-primary;
+        margin: 3px 0;
+        transition: all $transition-fast;
+        border-radius: 2px;
+      }
+    }
+  }
+
+  .mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: $white;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all $transition-medium;
+
+    &.mobile-menu-open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-nav-links {
+      list-style: none;
+      padding: 1rem;
+      margin: 0;
+
+      li {
+        margin-bottom: 0.5rem;
+
+        a {
+          display: block;
+          padding: 0.75rem;
+          color: $text-primary;
+          font-weight: 500;
+          border-radius: $border-radius;
+          transition: all $transition-fast;
+
+          &:hover {
+            background: $light-bg;
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 반응형 디자인
+@media (max-width: 768px) {
+  .header {
+    .nav {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu-toggle {
+        display: flex;
       }
     }
   }

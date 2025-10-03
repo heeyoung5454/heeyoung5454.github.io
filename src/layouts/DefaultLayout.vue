@@ -1,137 +1,111 @@
 <template>
   <div class="layout">
-    <!-- 좌측 사이드바 -->
-    <aside :class="['sidebar', { collapsed: !sidebarOpen }]">
-      <div class="logo">
-        <h1>MyPortfolio</h1>
-      </div>
+    <Header />
 
-      <!-- 네비게이션 메뉴 -->
-      <nav class="nav">
-        <ul>
-          <li v-for="route in routes" :key="route.path">
-            <RouterLink :to="route.path">{{ route.name }}</RouterLink>
-          </li>
-        </ul>
-      </nav>
+    <main class="main-content">
+      <router-view />
+    </main>
 
-      <!-- 사이드바 토글 -->
-      <button class="toggle-btn" @click="sidebarOpen = !sidebarOpen">
-        {{ sidebarOpen ? "⟨" : "⟩" }}
-      </button>
-    </aside>
+    <Footer />
 
-    <!-- 메인 콘텐츠 영역 -->
-    <div class="main">
-      <Header />
-      <!-- 로고만 표시 -->
-      <main>
-        <router-view />
-      </main>
-      <Footer />
-    </div>
+    <!-- 스크롤 투 탑 버튼 -->
+    <button v-show="showScrollTop" @click="scrollToTop" class="scroll-to-top" aria-label="맨 위로 이동">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+      </svg>
+    </button>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { ref, onMounted, onUnmounted } from "vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 
-const sidebarOpen = ref(true);
+const showScrollTop = ref(false);
 
-// 라우터 메뉴 가져오기 (name 있는 라우트만)
-const router = useRouter();
-const routes = router.options.routes.filter((r) => r.name);
+const handleScroll = () => {
+  showScrollTop.value = window.scrollY > 300;
+};
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 </script>
 
 <style lang="scss" scoped>
 @import "@/assets/styles/variables";
+@import "@/assets/styles/mixins";
 
 .layout {
+  min-height: 100vh;
   display: flex;
-  height: 100vh;
-  font-family: $font-main;
+  flex-direction: column;
+  background: $white;
+}
 
-  .sidebar {
-    background: $dark-bg;
-    color: $white;
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem 1rem;
-    transition: width 0.3s ease;
+.main-content {
+  flex: 1;
+  padding-top: 80px; // 헤더 높이만큼 패딩
+}
 
-    &.collapsed {
-      width: 80px;
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  @include flex-center;
+  width: 50px;
+  height: 50px;
+  background: $gradient-primary;
+  color: $white;
+  border: none;
+  border-radius: 50%;
+  box-shadow: $shadow-lg;
+  cursor: pointer;
+  transition: all $transition-fast;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
 
-      .logo h1 {
-        font-size: 1rem;
-      }
-
-      .nav ul li a {
-        font-size: 0; // 글자 숨김
-      }
-    }
-
-    .logo {
-      margin-bottom: 2rem;
-
-      h1 {
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
-    }
-
-    .nav {
-      flex: 1;
-
-      ul {
-        list-style: none;
-        padding: 0;
-
-        li {
-          margin: 1rem 0;
-
-          a {
-            color: $white;
-            text-decoration: none;
-            font-weight: 500;
-            display: block;
-            transition: color 0.2s;
-
-            &:hover {
-              color: $primary-color;
-            }
-          }
-        }
-      }
-    }
-
-    .toggle-btn {
-      margin-top: auto;
-      padding: 0.5rem;
-      background: $primary-color;
-      color: $white;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-      font-weight: bold;
-    }
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-xl;
   }
 
-  .main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    background: $light-bg;
+  // 애니메이션을 위한 클래스
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
 
-    main {
-      flex: 1;
-      padding: 2rem;
-      overflow-y: auto;
-    }
+// 스크롤 투 탑 버튼 표시 애니메이션
+.scroll-to-top[style*="display: block"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+// 반응형 디자인
+@media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 45px;
+    height: 45px;
   }
 }
 </style>

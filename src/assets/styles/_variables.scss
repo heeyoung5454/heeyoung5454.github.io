@@ -1,15 +1,35 @@
 // 색상
-$primary-color: #42b883; // Vue 그린
-$dark-bg: #1e1e1e; // 헤더 배경
-$light-bg: #f4f4f4; // 푸터 배경
-$text-color: #333; // 기본 텍스트
-$white: #fff; // 흰색
+$primary-color: #6366f1; // 인디고
+$secondary-color: #8b5cf6; // 퍼플
+$accent-color: #06b6d4; // 시안
+$dark-bg: #0f172a; // 다크 배경
+$light-bg: #f8fafc; // 라이트 배경
+$card-bg: #ffffff; // 카드 배경
+$text-primary: #1e293b; // 기본 텍스트
+$text-secondary: #64748b; // 보조 텍스트
+$text-light: #94a3b8; // 밝은 텍스트
+$white: #ffffff; // 흰색
+$black: #000000; // 검은색
+
+// 그라디언트
+$gradient-primary: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+$gradient-accent: linear-gradient(135deg, $accent-color 0%, $primary-color 100%);
 
 // 폰트
 $font-main: "Pretendard", "Noto Sans KR", sans-serif;
+$font-mono: "Fira Code", "Monaco", "Consolas", monospace;
 
-// // 레이아웃/공통 값
-// $max-width: 1200px;
-// $padding-main: 2rem;
-// $border-radius: 4px;
-// $transition-fast: 0.2s ease-in-out;
+// 레이아웃/공통 값
+$max-width: 1200px;
+$padding-main: 2rem;
+$border-radius: 12px;
+$border-radius-lg: 20px;
+$transition-fast: 0.2s ease-in-out;
+$transition-medium: 0.3s ease-in-out;
+$transition-slow: 0.5s ease-in-out;
+
+// 그림자
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
