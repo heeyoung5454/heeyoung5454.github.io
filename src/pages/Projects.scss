@@ -297,6 +297,45 @@
             display: flex;
             gap: 1rem;
             margin-top: 2rem;
+
+            .btn {
+              padding: 0.75rem 1.5rem;
+              border-radius: $border-radius;
+              text-decoration: none;
+              font-weight: 600;
+              transition: all $transition-fast;
+              border: 0.125rem solid;
+              cursor: pointer;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+
+              &.btn-primary {
+                background: $primary-color;
+                color: $white;
+                border-color: $primary-color;
+
+                &:hover {
+                  background: $secondary-color;
+                  border-color: $secondary-color;
+                  transform: translateY(-0.125rem);
+                  box-shadow: $shadow-lg;
+                }
+              }
+
+              &.btn-secondary {
+                background: transparent;
+                color: $primary-color;
+                border-color: $primary-color;
+
+                &:hover {
+                  background: $primary-color;
+                  color: $white;
+                  transform: translateY(-0.125rem);
+                  box-shadow: $shadow-lg;
+                }
+              }
+            }
           }
         }
       }

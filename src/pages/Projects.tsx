@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Projects.scss';
 
 interface Project {
@@ -16,76 +17,67 @@ interface Project {
 const Projects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('All');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const navigate = useNavigate();
 
-  const filters = ['All', 'React', 'Vue.js', 'JavaScript', 'TypeScript'];
+  const filters = ['All', 'Vue.js', 'Angular', '데이터 시각화'];
 
   const projects: Project[] = [
     {
       id: 1,
-      title: "E-commerce Platform",
-      description: "React와 Node.js를 활용한 온라인 쇼핑몰",
-      fullDescription: "사용자 친화적인 인터페이스와 안전한 결제 시스템을 갖춘 완전한 전자상거래 플랫폼입니다. 반응형 디자인과 실시간 재고 관리 기능을 포함합니다.",
-      tech: ["React", "Node.js", "MongoDB", "SCSS", "Stripe"],
-      category: "React",
+      title: "마이데이터 자산 통합 조회 서비스",
+      description: "Vue.js 기반 B2C 앱 및 B2B 웹뷰 플러그인 개발",
+      fullDescription: "마이데이터 API를 활용하여 사용자 자산 정보를 통합 조회할 수 있는 서비스입니다. Vue.js 기반 B2C 앱 화면 및 기업 대상 B2B 웹뷰 플러그인 UI를 구현했습니다.",
+      tech: ["Vue.js", "Native Communication", "WebView", "SCSS", "API"],
+      category: "Vue.js",
       demo: "https://example.com",
-      github: "https://github.com/heeyoung5454/ecommerce",
-      features: ["사용자 인증 및 권한 관리", "상품 검색 및 필터링", "장바구니 및 위시리스트", "안전한 결제 시스템", "관리자 대시보드"],
+      github: "https://github.com/heeyoung5454/mydata-service",
+      features: ["마이데이터 API 연동", "네이티브 앱과 WebView 통신", "자산 데이터 시각화", "B2B 웹뷰 플러그인", "금융 데이터 처리"],
     },
     {
       id: 2,
-      title: "Task Management App",
-      description: "Vue.js로 개발한 프로젝트 관리 도구",
-      fullDescription: "팀 협업을 위한 직관적인 프로젝트 관리 애플리케이션입니다. 칸반 보드, 일정 관리, 파일 공유 등 다양한 기능을 제공합니다.",
-      tech: ["Vue.js", "TypeScript", "Firebase", "Material-UI"],
-      category: "Vue.js",
+      title: "AI 기반 마케팅 지원 도구",
+      description: "아마존 상품 데이터 분석 및 마케팅 전략 수립 지원",
+      fullDescription: "아마존 상품 데이터를 분석하여 트렌드 및 마케팅 전략 수립을 지원하는 도구입니다. AI 솔루션 연계 기능으로 리뷰 분석, 이미지 편집, 상품 소개 문구 추천 등을 제공합니다.",
+      tech: ["Vue.js", "Chart.js",  "Matter.js", "API", "SCSS"],
+      category: "데이터 시각화",
       demo: "https://example.com",
-      github: "https://github.com/heeyoung5454/taskmanager",
-      features: ["드래그 앤 드롭 칸반 보드", "실시간 협업 기능", "파일 첨부 및 댓글", "일정 및 알림 관리", "프로젝트 통계 및 리포트"],
+      github: "https://github.com/heeyoung5454/marketing-tool",
+      features: ["상품 데이터 분석", "트렌드 시각화", "AI 리뷰 분석", "이미지 편집 기능", "마케팅 전략 추천"],
     },
     {
       id: 3,
-      title: "Weather Dashboard",
-      description: "실시간 날씨 정보 대시보드",
-      fullDescription: "API를 활용한 실시간 날씨 정보를 제공하는 대시보드입니다. 위치 기반 서비스와 7일 예보 기능을 포함합니다.",
-      tech: ["JavaScript", "API", "Chart.js", "CSS"],
-      category: "JavaScript",
+      title: "건강기능식품 비교 분석 페이지",
+      description: "데이터 시각화를 통한 제품 분석 서비스",
+      fullDescription: "외부 API 연동을 통한 판매량, 순위, 가격 변동 등 데이터를 수집 및 시각화하는 분석 페이지입니다. 고객사의 제품 전략 수립을 지원합니다.",
+      tech: ["Vue.js", "Chart.js", "Vitepress", "API", "SCSS"],
+      category: "데이터 시각화",
       demo: "https://example.com",
-      github: "https://github.com/heeyoung5454/weather",
-      features: ["실시간 날씨 정보", "위치 기반 서비스", "7일 날씨 예보", "인터랙티브 차트", "다크/라이트 모드"],
+      github: "https://github.com/heeyoung5454/supplement-analysis",
+      features: ["판매량 데이터 시각화", "가격 변동 분석", "제품 순위 표시", "필터링 및 검색", "분석 리포트 생성"],
     },
     {
       id: 4,
-      title: "Portfolio Website",
-      description: "반응형 포트폴리오 웹사이트",
-      fullDescription: "현대적이고 반응형 디자인의 개인 포트폴리오 웹사이트입니다. 프로젝트 소개, 기술 스택, 연락처 정보를 포함합니다.",
-      tech: ["React", "SCSS", "Vite", "TypeScript"],
-      category: "React",
+      title: "사내 복지 앱",
+      description: "Vue.js 기반 WebView 앱 UI 개발",
+      fullDescription: "사내 복지 앱으로 임직원들을 위한 복지 앱입니다. 사이렌오더 기능과 GPS 인증 이벤트등이 포함됩니다. 접근성을 강화한 사용자 친화적인 인터페이스를 구현했습니다.",
+      tech: ["Vue.js", "JavaScript", "WebView", "SCSS", "GPS"],
+      category: "Vue.js",
       demo: "https://example.com",
-      github: "https://github.com/heeyoung5454/portfolio",
-      features: ["반응형 디자인", "다크/라이트 테마", "애니메이션 효과", "SEO 최적화", "성능 최적화"],
+      github: "https://github.com/heeyoung5454/welfare-app",
+      features: ["주문 예약 현황 관리", "GPS 인증 이벤트", "접근성 강화", "관리자 주문 목록", "지도 시각화"],
     },
     {
       id: 5,
-      title: "Chat Application",
-      description: "실시간 채팅 애플리케이션",
-      fullDescription: "WebSocket을 활용한 실시간 채팅 애플리케이션입니다. 그룹 채팅, 파일 공유, 이모지 지원 등의 기능을 제공합니다.",
-      tech: ["React", "TypeScript", "Socket.io", "Node.js"],
-      category: "React",
-      demo: "https://example.com",
-      github: "https://github.com/heeyoung5454/chat",
-      features: ["실시간 메시징", "그룹 채팅방", "파일 및 이미지 공유", "이모지 및 스티커", "온라인 상태 표시"],
+      title: "API 서비스 홈페이지",
+      description: "Angular 기반 홈페이지 유지보수 및 Vue 마이그레이션",
+      fullDescription: "Angular 기반 홈페이지 유지보수 및 기능 추가, 점진적 Vue 마이그레이션을 수행했습니다. Vue 및 JavaScript 기반 어드민 시스템도 함께 관리했습니다.",
+      tech: ["Angular", "Vue.js", "JavaScript", "SCSS", "API"],
+      category: "Angular",
+      demo: "https://codef.io",
+      github: "https://github.com/heeyoung5454/api-website",
+      features: ["Angular 홈페이지 유지보수", "Vue 마이그레이션", "어드민 시스템 관리", "API 문서화", "레거시 코드 개선"],
     },
-    {
-      id: 6,
-      title: "Blog CMS",
-      description: "마크다운 기반 블로그 CMS",
-      fullDescription: "마크다운 에디터와 카테고리 관리 기능을 갖춘 블로그 CMS입니다. 관리자 대시보드와 댓글 시스템을 포함합니다.",
-      tech: ["Vue.js", "TypeScript", "Markdown", "Express"],
-      category: "Vue.js",
-      demo: "https://example.com",
-      github: "https://github.com/heeyoung5454/blog-cms",
-      features: ["마크다운 에디터", "카테고리 및 태그 관리", "댓글 시스템", "SEO 최적화", "관리자 대시보드"],
-    },
+    
   ];
 
   const filteredProjects = useMemo(() => {
@@ -103,6 +95,11 @@ const Projects: React.FC = () => {
   const closeProjectModal = () => {
     setSelectedProject(null);
     document.body.style.overflow = 'auto';
+  };
+
+  const goToPreview = (projectId: number) => {
+    closeProjectModal();
+    navigate(`/preview/${projectId}`);
   };
 
   return (
@@ -222,12 +219,12 @@ const Projects: React.FC = () => {
                 <div className="modal-links">
                   {selectedProject.demo && (
                     <a href={selectedProject.demo} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                      라이브 데모
+                      사이트
                     </a>
                   )}
-                  <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                    GitHub
-                  </a>
+                  <button onClick={() => goToPreview(selectedProject.id)} className="btn btn-secondary">
+                    미리보기
+                  </button>
                 </div>
               </div>
             </div>

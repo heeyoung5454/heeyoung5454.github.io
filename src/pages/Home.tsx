@@ -41,55 +41,50 @@ const Home: React.FC = () => {
 
   const techStack = [
     {
-      name: "React",
-      description: "컴포넌트 기반 개발",
-      icon: "⚛️",
-    },
-    {
-      name: "TypeScript",
-      description: "타입 안전성",
-      icon: "🔷",
-    },
-    {
-      name: "JavaScript",
-      description: "ES6+ 문법 활용",
-      icon: "🟨",
-    },
-    {
       name: "Vue.js",
-      description: "반응형 UI 개발",
+      description: "웹/앱 서비스 개발",
       icon: "💚",
     },
     {
+      name: "JavaScript",
+      description: "ES6+ 최신 문법",
+      icon: "🟨",
+    },
+    {
       name: "SCSS",
-      description: "스타일링",
+      description: "모듈화된 스타일링",
       icon: "🎨",
     },
     {
-      name: "Node.js",
-      description: "백엔드 개발",
-      icon: "🟢",
+      name: "API 연동",
+      description: "REST API 통신",
+      icon: "🔗",
+    },
+    {
+      name: "데이터 시각화",
+      description: "Chart.js, D3.js",
+      icon: "📊",
     },
   ];
 
   const recentProjects = [
     {
       id: 1,
-      title: "E-commerce Platform",
-      description: "React와 Node.js를 활용한 온라인 쇼핑몰",
-      tech: ["React", "Node.js", "MongoDB"],
+      title: "마이데이터 자산 통합 조회 서비스",
+      description: "Vue.js 기반 B2C 앱 및 B2B 웹뷰 플러그인 개발",
+      tech: ["Vue.js", "TypeScript", "WebView"],
     },
     {
       id: 2,
-      title: "Task Management App",
-      description: "Vue.js로 개발한 프로젝트 관리 도구",
-      tech: ["Vue.js", "TypeScript", "Firebase"],
+      title: "AI 기반 마케팅 지원 도구",
+      description: "아마존 상품 데이터 분석 및 마케팅 전략 수립 지원",
+      tech: ["Vue.js", "Chart.js", "API"],
     },
     {
       id: 3,
-      title: "Portfolio Website",
-      description: "반응형 포트폴리오 웹사이트",
-      tech: ["React", "SCSS", "Vite"],
+      title: "건강기능식품 비교 분석 페이지",
+      description: "데이터 시각화를 통한 제품 분석 서비스",
+      tech: ["Vue.js", "D3.js", "SCSS"],
     },
   ];
 
@@ -111,9 +106,9 @@ const Home: React.FC = () => {
               <span className={`gradient-text title-line ${heroVisible ? 'animate delay-1' : ''}`}>HeeYoung</span>
               <span className={`title-line ${heroVisible ? 'animate delay-2' : ''}`}>입니다</span>
             </h1>
-            <p className={`hero-description ${heroVisible ? 'animate delay-3' : ''}`}>
-              사용자 경험을 중시하는 프론트엔드 개발자로, 현대적이고 반응형 웹 애플리케이션을 만듭니다.
-            </p>
+                <p className={`hero-description ${heroVisible ? 'animate delay-3' : ''}`}>
+                  Vue.js 전문 개발자로, 데이터 시각화와 API 연동을 통한 실용적인 웹/앱 서비스를 개발합니다.
+                </p>
             <div className={`hero-buttons ${heroVisible ? 'animate delay-4' : ''}`}>
               <Link to="/projects" className="btn btn-primary hover-lift"> 
                 프로젝트 보기 
@@ -192,7 +187,7 @@ const Home: React.FC = () => {
             ))}
           </div>
           <div className="projects-cta">
-            <Link to="/projects" className="btn btn-outline">모든 프로젝트 보기</Link>
+            <Link to="/projects" className="btn btn-outline">자세히 보기</Link>
           </div>
         </div>
       </section>

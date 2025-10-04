@@ -1,0 +1,12 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#F8FAFF"/>
+  <rect x="50" y="50" width="700" height="500" fill="#E8F2FF" stroke="#275CAC" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="400" y="280" text-anchor="middle" fill="#275CAC" font-family="Arial, sans-serif" font-size="24" font-weight="600">
+    프로젝트 이미지
+  </text>
+  <text x="400" y="320" text-anchor="middle" fill="#64748b" font-family="Arial, sans-serif" font-size="16">
+    이미지를 추가해주세요
+  </text>
+  <circle cx="400" cy="200" r="40" fill="#275CAC" opacity="0.2"/>
+  <path d="M380 200 L390 210 L420 180" stroke="#275CAC" stroke-width="3" fill="none"/>
+</svg>
