@@ -1,84 +1,5 @@
-<template>
-  <header class="header" :class="{ 'header-scrolled': isScrolled, 'header-hidden': isHeaderHidden }">
-    <nav class="nav">
-      <div class="logo">
-        <span class="logo-text">HeeYoung</span>
-        <span class="logo-subtitle">Frontend Developer</span>
-      </div>
-
-      <ul class="nav-links">
-        <li><RouterLink to="/" class="nav-link">Home</RouterLink></li>
-        <li><RouterLink to="/about" class="nav-link">About</RouterLink></li>
-        <li><RouterLink to="/projects" class="nav-link">Projects</RouterLink></li>
-        <li><RouterLink to="/contact" class="nav-link">Contact</RouterLink></li>
-      </ul>
-
-      <div class="mobile-menu-toggle" @click="toggleMobileMenu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </nav>
-
-    <!-- 모바일 메뉴 -->
-    <div class="mobile-menu" :class="{ 'mobile-menu-open': mobileMenuOpen }">
-      <ul class="mobile-nav-links">
-        <li><RouterLink to="/" @click="closeMobileMenu">Home</RouterLink></li>
-        <li><RouterLink to="/about" @click="closeMobileMenu">About</RouterLink></li>
-        <li><RouterLink to="/projects" @click="closeMobileMenu">Projects</RouterLink></li>
-        <li><RouterLink to="/contact" @click="closeMobileMenu">Contact</RouterLink></li>
-      </ul>
-    </div>
-  </header>
-</template>
-
-<script setup>
-import { RouterLink } from "vue-router";
-import { ref, onMounted, onUnmounted } from "vue";
-
-const isScrolled = ref(false);
-const isHeaderHidden = ref(false);
-const mobileMenuOpen = ref(false);
-const lastScrollY = ref(0);
-
-const handleScroll = () => {
-  const currentScrollY = window.scrollY;
-  
-  // 스크롤 위치에 따른 헤더 스타일 변경
-  isScrolled.value = currentScrollY > 50;
-  
-  // 스크롤 방향에 따른 헤더 숨김/보임 처리
-  if (currentScrollY > lastScrollY.value && currentScrollY > 100) {
-    // 아래로 스크롤할 때 (100px 이상에서)
-    isHeaderHidden.value = true;
-  } else {
-    // 위로 스크롤할 때
-    isHeaderHidden.value = false;
-  }
-  
-  lastScrollY.value = currentScrollY;
-};
-
-const toggleMobileMenu = () => {
-  mobileMenuOpen.value = !mobileMenuOpen.value;
-};
-
-const closeMobileMenu = () => {
-  mobileMenuOpen.value = false;
-};
-
-onMounted(() => {
-  window.addEventListener("scroll", handleScroll);
-});
-
-onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
-});
-</script>
-
-<style lang="scss" scoped>
-@import "@/assets/styles/variables";
-@import "@/assets/styles/mixins";
+@import '../assets/styles/variables';
+@import '../assets/styles/mixins';
 
 .header {
   position: fixed;
@@ -143,7 +64,7 @@ onUnmounted(() => {
           color: $primary-color;
         }
 
-        &.router-link-active {
+        &.active {
           color: $primary-color;
 
           &::after {
@@ -235,4 +156,3 @@ onUnmounted(() => {
     }
   }
 }
-</style>

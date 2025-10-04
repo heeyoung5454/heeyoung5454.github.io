@@ -1,9 +1,9 @@
-// 색상
-$primary-color: #6366f1; // 인디고
-$secondary-color: #8b5cf6; // 퍼플
-$accent-color: #06b6d4; // 시안
+// 색상 - 포카리스웨트 공식 브랜드 컬러
+$primary-color: #275CAC; // 포카리스웨트 메인 블루
+$secondary-color: #1E4A8C; // 포카리스웨트 다크 블루
+$accent-color: #4A7BC8; // 포카리스웨트 라이트 블루
 $dark-bg: #0f172a; // 다크 배경
-$light-bg: #f8fafc; // 라이트 배경
+$light-bg: #F8FAFF; // 포카리스웨트 느낌의 라이트 배경
 $card-bg: #ffffff; // 카드 배경
 $text-primary: #1e293b; // 기본 텍스트
 $text-secondary: #64748b; // 보조 텍스트
@@ -11,9 +11,9 @@ $text-light: #94a3b8; // 밝은 텍스트
 $white: #ffffff; // 흰색
 $black: #000000; // 검은색
 
-// 그라디언트
-$gradient-primary: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
-$gradient-accent: linear-gradient(135deg, $accent-color 0%, $primary-color 100%);
+// 그라디언트 - 포카리스웨트 공식 브랜드 그라디언트
+$gradient-primary: linear-gradient(135deg, #275CAC 0%, #1E4A8C 100%);
+$gradient-accent: linear-gradient(135deg, #4A7BC8 0%, #275CAC 100%);
 
 // 폰트
 $font-main: "Pretendard", "Noto Sans KR", sans-serif;
